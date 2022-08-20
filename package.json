@@ -1,0 +1,22 @@
+{
+  "name": "GuessWhat",
+  "version": "1.0.0",
+  "description": "Apprentissage",
+  "main": "source\\PartieAJouer.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "nodemon app.js"
+  },
+  "type": "module",
+  "author": "Timothée Robert",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.18",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "nyc": "^15.1.0"
+  }
+}
