@@ -41,6 +41,16 @@ export class Carte {
         return this._nomCarte._points == uneCarte._nomCarte._points && this._couleur.name == uneCarte._couleur.name ;
     }
 
+
+    toString = function() {
+        return 'la carte est: '+this.nomCarte.toString() + ' et sa couleur est: '+this.couleur.toString();
+    }
+
 }
+/*Carte.prototype.toString = () => {
+    const laCarte = 'La carte est '
+        + nomCarte() + ' et la couleur est '+ couleur();
+    return laCarte;
+}*/
 
 

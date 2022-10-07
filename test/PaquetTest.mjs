@@ -1,8 +1,8 @@
-import {Carte} from '../Carte.js';
+import {Carte} from '../source/Carte.js';
 import assert from 'assert';
-import {NomCarte} from "../NomCarte.js";
-import {Couleur} from "../Couleur.js";
-import {Paquet} from "../Paquet.js";
+import {NomCarte} from "../source/NomCarte.js";
+import {Couleur} from "../source/Couleur.js";
+import {Paquet} from "../source/Paquet.js";
 
 describe('Paquet', function(){
 

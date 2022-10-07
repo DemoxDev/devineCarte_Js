@@ -39,7 +39,8 @@ if (nomCarte != null && couleurCarte != null) {
     } else {
 
         console.log("Ce n'est pas bon")
-        console.log("Vous avez proposé" + carteJoueur)
+        console.log("Vous avez proposé" + carteJoueur.toString())
+
 
         if (aide) {
             // TODO: (A) si l'aide est activée, alors dire si la carte proposée est

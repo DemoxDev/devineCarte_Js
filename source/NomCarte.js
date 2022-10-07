@@ -43,4 +43,7 @@ export class NomCarte {
         }
             return null
     }
+    toString = function() {
+        return 'la carte est: '+this.name + ' et sa valeur est: '+this.points;
+    }
 }

@@ -18,6 +18,9 @@ export class Couleur {
         }
         return null
     }
+    toString = function() {
+        return 'la couleur est: '+this.name ;
+    }
 
 }
 
