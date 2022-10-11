@@ -395,7 +395,7 @@ stop
 
 === Implémenter les TODOs (A)
 
-Vous les trouverez dans la définition de la classe `MainPlayConsole`
+Vous les trouverez dans la définition de la classe `PartieAJouer`
 
 === Représentation algorithme de la fonction nouvelle version
 
