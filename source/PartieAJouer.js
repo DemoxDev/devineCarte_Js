@@ -11,22 +11,22 @@ console.log("Création d'un paquet de 32 cartes");
 const paquetDecartes = new Paquet();
 
 console.log(" ==== Instanciation du jeu, début de la partie. ====");
-// const jeu = new Jeu(aide,paquetDecartes, new Carte(NomCarte.Sept,Couleur.Trefle)) ;
-const jeu = new Jeu(aide, paquetDecartes);
+const jeu = new Jeu(
+	aide,
+	paquetDeCartes /*, new Carte(NomCarte.Sept,Couleur.Trefle)*/
+);
 
 const prompt = promptSync();
-const carte = prompt(
+const nomSaisi = prompt(
 	"Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) : "
 );
-const nomCarte = NomCarte.getNomCarteFromString(carte);
+const nomCarte = NomCarte.getNomCarteFromString(nomSaisi);
 console.log(nomCarte);
 
-const couleur = prompt(
+const couleurSaisie = prompt(
 	'Entrez un nom de "couleur" de carte parmi : Pique, Trefle, Coeur, Carreau : '
 );
-const couleurCarte = Couleur.getCouleurCarteFromString(couleur);
-
-// console.log(new Couleur(couleur));
+const couleurCarte = Couleur.getCouleurCarteFromString(couleurSaisie);
 console.log(couleurCarte);
 
 if (nomCarte != null && couleurCarte != null) {
@@ -36,8 +36,8 @@ if (nomCarte != null && couleurCarte != null) {
 	if (jeu.isMatch(carteJoueur)) {
 		console.log("Bravo, vous avez trouvé la bonne carte !");
 	} else {
-		console.log("Ce n'est pas bon");
-		console.log("Vous avez proposé" + carteJoueur.toString());
+		console.log("Vous n'avez pas trouvé la carte à deviner !");
+		console.log("Carte proposée: " + carteJoueur.toString());
 
 		if (aide) {
 			// TODO: (A) si l'aide est activée, alors dire si la carte proposée est
@@ -46,15 +46,15 @@ if (nomCarte != null && couleurCarte != null) {
 	}
 } else {
 	console.log(
-		"Désolé, mauvaise définition de carte !" + nomCarte + couleurCarte
+		"Désolé, mauvaise définition de carte: " + nomCarte + " " + couleurCarte
 	);
 }
 
 // TODO (A) permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie
 console.log("==== Fin prématurée de la partie ====");
 
-// TODO (A) Présenter à la fin la carte à deviner
-console.log("TODO Présenter ici la carte à deviner");
+console.log("Voici la carte qu'il fallait deviner:");
+console.log(jeu.carteADeviner.toString());
 
 // TODO (challenge-4) la stratégie de jeu est à implémenter... à faire lorsque les autres TODOs auront été réalisés
 console.log("Votre stratégie de jeu :" + jeu.strategiePartie());
