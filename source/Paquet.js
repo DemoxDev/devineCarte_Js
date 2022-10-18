@@ -15,8 +15,8 @@ export class Paquet {
 		return this._cartes.length;
 	}
 	carteAdeviner() {
-		return this._cartes[0];
-		//return new Carte(NomCarte.Sept,Couleur.Trefle) ;
+		let hasard = Math.floor(Math.random() * this.taille());
+		return this._cartes[hasard];
 	}
 
 	toString() {
