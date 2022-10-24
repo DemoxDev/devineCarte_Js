@@ -8,12 +8,13 @@ import promptSync from "prompt-sync";
 const aide = false;
 console.log("Création d'un paquet de 32 cartes");
 // const paquetDecartes = Paquet.createJeu32Cartes() ;
-const paquetDecartes = new Paquet();
+const paquetDeCartes = new Paquet();
 
 console.log(" ==== Instanciation du jeu, début de la partie. ====");
 const jeu = new Jeu(
 	aide,
-	paquetDeCartes /*, new Carte(NomCarte.Sept,Couleur.Trefle)*/
+	paquetDeCartes
+	/*, new Carte(NomCarte.Sept,Couleur.Trefle)*/
 );
 
 const prompt = promptSync();
