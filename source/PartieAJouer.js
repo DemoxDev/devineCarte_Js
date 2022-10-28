@@ -82,14 +82,13 @@ while (retenter === true)
         console.log("Désolé, mauvaise définition de carte !"+ nomCarte + couleurCarte)
 
     }
-
+    //FAIT TODO (A) permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie
 	var retenter = Boolean(prompt('Saisissez True pour retenter ou False pour abandoner la partie : '));
     while (retenter !== true && retenter !== false) {
         var retenter = Number(prompt('Mauvaise saisie. Saisissez True pour retenter ou False pour abandoner la partie : '));
     }
 }
 
-// TODO (A) permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie
 console.log("==== Fin prématurée de la partie ====");
 
 console.log("Voici la carte qu'il fallait deviner:");
