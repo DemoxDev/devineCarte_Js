@@ -23,23 +23,11 @@ export class Paquet {
 		return "Paquet de " + this.taille() + " cartes";
 	}
 
-
-
 	constructor(cartes) {
 		if (typeof cartes === "undefined" || cartes.length == 0)
 			this._cartes = Paquet.createJeu32Cartes();
 		else this._cartes = cartes;
 	}
-
-    // constructor(cartes) {
-
-    //     if (cartes === 32)
-    //         this._cartes = Paquet.createJeu32Cartes() ;
-    //     else if (cartes === 52)
-    //         this._cartes = Paquet.createJeu52Cartes() ;
-    //     else
-    //         console.log("Impossible de créer un paquet avec ce nombre de cartes.")
-    // }
 
 	static createJeu32Cartes() {
 		let listeCartes = new Array(
@@ -138,6 +126,6 @@ export class Paquet {
 	}
 
 	rebattement(listeCartes) {
-		return listeCartes.sort( () => .5 - Math.random() );
+		return listeCartes.sort(() => 0.5 - Math.random());
 	}
 }
