@@ -30,9 +30,11 @@ export class Carte {
 	 * ***/
 
 	compareTo(uneCarte) {
-		if (this._nomCarte.points > uneCarte._nomCarte.points) return 1;
-		else if (this._nomCarte.points === uneCarte._nomCarte.points) return 0;
-		else return -1;
+		if (this._nomCarte.points > uneCarte._nomCarte.points)
+			return 1; //La carte en paramètre est plus petite
+		else if (this._nomCarte.points === uneCarte._nomCarte.points)
+			return 0; //La carte en paramètre a la même valeur
+		else return -1; //La carte en paramètre est plus grande
 	}
 	equals(uneCarte) {
 		return (
