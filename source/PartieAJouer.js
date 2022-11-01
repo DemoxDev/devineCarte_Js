@@ -88,9 +88,9 @@ while (retenter) {
 			if (jeu.avecAide) {
 				let helpMsg = "";
 				// Comparaison de la valeur
-				if (carteJoueur.compareTo(jeu.carteADeviner) == 1) {
+				if (carteJoueur.compareTo(jeu.carteADeviner) == -1) {
 					helpMsg += "La carte à deviner est plus grande";
-				} else if (carteJoueur.compareTo(jeu.carteADeviner) == -1) {
+				} else if (carteJoueur.compareTo(jeu.carteADeviner) == 1) {
 					helpMsg += "La carte à deviner est plus petite";
 				} else {
 					helpMsg += "La carte a deviner a la même valeur";
