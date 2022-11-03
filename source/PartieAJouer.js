@@ -21,12 +21,14 @@ if (nb_cartes == 32) {
 	var paquetDeCartes = new Paquet(Paquet.createJeu32Cartes());
 } else {
 	console.log("Création d'un paquet de 52 cartes");
-	var paquetDeCartes = new Paquet(Paquet.createJeu32Cartes());
+	var paquetDeCartes = new Paquet(Paquet.createJeu52Cartes());
 }
- 
-// console.log(paquetDeCartes.cartes.toString())
-// paquetDeCartes.cartes = paquetDeCartes.rebattement();
-// console.log(paquetDeCartes.cartes.toString())
+
+// console.log("Contenu du paquet: \n" + paquetDeCartes.toString());
+// paquetDeCartes.rebattement();
+// console.log(
+// 	"Contenu du paquet après rebattement: \n" + paquetDeCartes.toString()
+// );
 
 let aide = "";
 // Donner au joueur le choix de reçevoir de l'aide à chaque essai
@@ -50,8 +52,6 @@ const jeu = new Jeu(
 	paquetDeCartes
 	//,new Carte(NomCarte.Sept, Couleur.Trefle) //Forcer la carte à deviner
 );
-
-
 
 var retenter = true;
 var essais = 0; // incrémenté à chaque fois que retenter est vrai
@@ -95,9 +95,9 @@ while (retenter) {
 			if (jeu.avecAide) {
 				let helpMsg = "";
 				// Comparaison de la valeur
-				if (carteJoueur.compareTo(jeu.carteADeviner) == 1) {
+				if (carteJoueur.compareTo(jeu.carteADeviner) == -1) {
 					helpMsg += "La carte à deviner est plus grande";
-				} else if (carteJoueur.compareTo(jeu.carteADeviner) == -1) {
+				} else if (carteJoueur.compareTo(jeu.carteADeviner) == 1) {
 					helpMsg += "La carte à deviner est plus petite";
 				} else {
 					helpMsg += "La carte a deviner a la même valeur";

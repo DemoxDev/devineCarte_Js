@@ -20,7 +20,9 @@ export class Paquet {
 	}
 
 	toString() {
-		return "Paquet de " + this.taille() + " cartes";
+		let message = "";
+		this.cartes.forEach((element) => (message += element + "\n"));
+		return "Paquet de " + this.taille() + " cartes" + "\n" + message;
 	}
 
 	constructor(cartes) {
@@ -126,6 +128,6 @@ export class Paquet {
 	}
 
 	rebattement(cartes) {
-		return this.cartes.sort(() => 0.5 - Math.random());
+		this.cartes.sort(() => 0.5 - Math.random());
 	}
 }
