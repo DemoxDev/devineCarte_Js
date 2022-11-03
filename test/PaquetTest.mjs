@@ -36,11 +36,10 @@ describe("Paquet", function () {
 			assert.equal("Paquet de 2 cartes", paquetCartes.toString());
 		});
 	});
-	// describe("rebattement", function () {
-	// 	it("test de rebattre les cartes", function() {
-	// 		const paquetCartes1 = new Paquet(Paquet.createJeu32Cartes());
-	// 		console.log(paquetCartes1.toString())
-	// 		assert.deepEqual(paquetCartes1, paquetCartes1.rebattement())
-	// 	})
-	// })
+	describe("rebattement", function () {
+		it("test de rebattre les cartes", function() {
+	 		const paquetCartes1 = new Paquet(Paquet.createJeu32Cartes());
+			assert.notEqual(paquetCartes1, paquetCartes1.rebattement());
+		})
+	})
 });

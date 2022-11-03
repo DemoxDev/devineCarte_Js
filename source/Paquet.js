@@ -20,9 +20,7 @@ export class Paquet {
 	}
 
 	toString() {
-		let message = ""
-		this.cartes.forEach(element => message += element + "\n")
-		return "Paquet de " + this.taille() + " cartes" + "\n" + message;
+		return "Paquet de " + this.taille() + " cartes";
 	}
 
 	constructor(cartes) {

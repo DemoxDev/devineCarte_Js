@@ -23,11 +23,10 @@ if (nb_cartes == 32) {
 	console.log("Création d'un paquet de 52 cartes");
 	var paquetDeCartes = new Paquet(Paquet.createJeu32Cartes());
 }
-
-// console.log(paquetDeCartes.toString())
-// paquetDeCartes = paquetDeCartes.rebattement();
-// console.log(paquetDeCartes.toString())
-
+ 
+// console.log(paquetDeCartes.cartes.toString())
+// paquetDeCartes.cartes = paquetDeCartes.rebattement();
+// console.log(paquetDeCartes.cartes.toString())
 
 let aide = "";
 // Donner au joueur le choix de reçevoir de l'aide à chaque essai
