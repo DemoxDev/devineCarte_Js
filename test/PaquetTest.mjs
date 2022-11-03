@@ -3,6 +3,7 @@ import assert from "assert";
 import { NomCarte } from "../source/NomCarte.js";
 import { Couleur } from "../source/Couleur.js";
 import { Paquet } from "../source/Paquet.js";
+import { copyFileSync } from "fs";
 
 describe("Paquet", function () {
 	describe("taille", function () {
@@ -37,9 +38,14 @@ describe("Paquet", function () {
 		});
 	});
 	describe("rebattement", function () {
-		it("test de rebattre les cartes", function() {
-	 		const paquetCartes1 = new Paquet(Paquet.createJeu32Cartes());
-			assert.notEqual(paquetCartes1, paquetCartes1.rebattement());
+		it("test de rebattre les cartes", function () {
+			const paquetCartesARebattre = new Paquet(Paquet.createJeu32Cartes());
+			const etatInitial = Object.assign({}, paquetCartesARebattre.cartes);
+			paquetCartesARebattre.rebattement();
+			// console.log(etatInitial)
+			// console.log(paquetCartesARebattre.cartes.toString())
+			assert.notEqual(etatInitial, paquetCartesARebattre.cartes);
+			
 		})
 	})
 });
