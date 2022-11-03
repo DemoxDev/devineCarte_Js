@@ -23,6 +23,12 @@ if (nb_cartes == 32) {
 	console.log("Création d'un paquet de 52 cartes");
 	var paquetDeCartes = new Paquet(Paquet.createJeu32Cartes());
 }
+
+// console.log(paquetDeCartes.toString())
+// paquetDeCartes = paquetDeCartes.rebattement();
+// console.log(paquetDeCartes.toString())
+
+
 let aide = "";
 // Donner au joueur le choix de reçevoir de l'aide à chaque essai
 while (aide !== true && aide !== false) {
@@ -45,6 +51,8 @@ const jeu = new Jeu(
 	paquetDeCartes
 	//,new Carte(NomCarte.Sept, Couleur.Trefle) //Forcer la carte à deviner
 );
+
+
 
 var retenter = true;
 var essais = 0; // incrémenté à chaque fois que retenter est vrai
