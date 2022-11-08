@@ -1,54 +1,60 @@
-import {Carte} from "./Carte.js";
-import {Paquet} from "./Paquet.js";
+import { Carte } from "./Carte.js";
+import { Paquet } from "./Paquet.js";
+import { Strategie } from "./Strategie.js";
 
 export class Jeu {
-    get avecAide() {
-        return this._avecAide;
-    }
+	get avecAide() {
+		return this._avecAide;
+	}
 
-    set avecAide(value) {
-        this._avecAide = value;
-    }
+	set avecAide(value) {
+		this._avecAide = value;
+	}
 
-    get paquet() {
-        return this._paquet;
-    }
+	get paquet() {
+		return this._paquet;
+	}
 
-    set paquet(value) {
-        this._paquet = value;
-    }
+	set paquet(value) {
+		this._paquet = value;
+	}
 
-    get carteADeviner() {
-        return this._carteADeviner;
-    }
+	get carteADeviner() {
+		return this._carteADeviner;
+	}
 
-    set carteADeviner(value) {
-        this._carteADeviner = value;
-    }
+	set carteADeviner(value) {
+		this._carteADeviner = value;
+	}
 
-    constructor(avecAide, paquet, carte) {
-        this._paquet = paquet;
+	get strategie() {
+		return this._strategie;
+	}
 
-        if (typeof carte === 'undefined') {
-            this._carteADeviner = paquet.carteAdeviner() ;
-        }
-        else
-            this._carteADeviner = carte ;
-        this._avecAide = avecAide;
+	set strategie(value) {
+		this._strategie = value;
+	}
 
-    }
+	constructor(avecAide, paquet, carte) {
+		this._paquet = paquet;
 
-        isMatch(carteProposee) {
-            return this._carteADeviner.equals(carteProposee) ;
-        }
+		if (typeof carte === "undefined") {
+			this._carteADeviner = paquet.carteAdeviner();
+		} else this._carteADeviner = carte;
+		this._avecAide = avecAide;
+		this._strategie = new Strategie(this);
+	}
 
-    /**
-     * Analyse la partie du joueur, a-t-il abandonné la partie,
-     *  a-t-il trouvé la carte en un nombre de fois "convenable" ou "inconvenable",
-     *  a-t-il eu de la chance ?
-     */
-        strategiePartie(){
-            return "TODO stratégie de la partie"
-        }
+	isMatch(carteProposee) {
+		return this._carteADeviner.equals(carteProposee);
+	}
 
+	/**
+	 * Analyse la partie du joueur, a-t-il abandonné la partie,
+	 *  a-t-il trouvé la carte en un nombre de fois "convenable" ou "inconvenable",
+	 *  a-t-il eu de la chance ?
+	 */
+	strategiePartie() {
+		return this._strategie.toString();
+	}
 }
