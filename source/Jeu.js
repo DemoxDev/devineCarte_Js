@@ -35,6 +35,14 @@ export class Jeu {
 		this._strategie = value;
 	}
 
+	get essaisTab() {
+		return this._essaisTab;
+	}
+
+	set essaisTab(value) {
+		this._essaisTab = value;
+	}
+
 	constructor(avecAide, paquet, carte) {
 		this._paquet = paquet;
 
@@ -43,6 +51,7 @@ export class Jeu {
 		} else this._carteADeviner = carte;
 		this._avecAide = avecAide;
 		this._strategie = new Strategie(this);
+		this._essaisTab = [];
 	}
 
 	isMatch(carteProposee) {
