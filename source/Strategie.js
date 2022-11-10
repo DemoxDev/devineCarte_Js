@@ -18,6 +18,26 @@ export class Strategie {
 	}
 
 	toString = function () {
-		return "Stratégie toString";
+		let stratMsg =
+			"Le joueur a fait " +
+			this._jeu.essaisTab[0][0] +
+			" essais au cours de cette partie\n";
+		if (this._jeu.essaisTab[0][1] == true) {
+			stratMsg += "Le joueur a utilisé de l'aide pour cette partie\n";
+		} else {
+			stratMsg += "Le joueur n'a pas utilisé l'aide pour cette partie\n";
+		}
+		let nb_essais = this._jeu.essaisTab.length;
+		for (let i = 1; i < nb_essais; i++) {
+			stratMsg += "Lors de l'essai " + i + ", ";
+			stratMsg +=
+				"le joueur a proposé la carte " +
+				this._jeu.essaisTab[i][0].toString();
+			if (i + 1 == nb_essais) {
+				stratMsg += " et a terminé la partie.";
+			}
+			stratMsg += "\n";
+		}
+		return stratMsg;
 	};
 }
