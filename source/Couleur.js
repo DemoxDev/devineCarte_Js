@@ -1,9 +1,9 @@
 export class Couleur {
 	// Création de nouvelles instances de la classe comme attributs statiques
-	static Trefle = new Couleur("Trefle");
-	static Carreau = new Couleur("Carreau");
-	static Coeur = new Couleur("Coeur");
-	static Pique = new Couleur("Pique");
+	static Trefle = new Couleur("Trefle"); //4 point ?
+	static Carreau = new Couleur("Carreau"); // 3 points ?
+	static Coeur = new Couleur("Coeur"); // 2 points ?
+	static Pique = new Couleur("Pique"); // 1 points ?
 
 	constructor(name) {
 		this.name = name;
