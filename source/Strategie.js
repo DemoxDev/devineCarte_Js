@@ -8,15 +8,15 @@ export class Strategie {
 	set jeu(value) {
 		this._jeu = value;
 	}
+	constructor(jeu) {
+		this._jeu = jeu;
+	}
+
 	/**
 	 * Analyse la partie du joueur, a-t-il abandonné la partie,
 	 *  a-t-il trouvé la carte en un nombre de fois "convenable" ou "inconvenable",
 	 *  a-t-il eu de la chance ?
 	 */
-	constructor(jeu) {
-		this._jeu = jeu;
-	}
-
 	toString = function () {
 		let stratMsg =
 			"Le joueur a fait " +
@@ -33,6 +33,33 @@ export class Strategie {
 			stratMsg +=
 				"le joueur a proposé la carte " +
 				this._jeu.essaisTab[i][0].toString();
+			if (
+				this._jeu.essaisTab[0][1] == true &&
+				this._jeu.essaisTab[i - 1][1] !== true &&
+				this._jeu.essaisTab[i - 1][1] != null
+			) {
+				stratMsg += ' après avoir reçu comme indice "';
+				switch (this._jeu.essaisTab[i - 1][1]) {
+					case -1:
+						stratMsg += "La carte à deviner est plus grande";
+						break;
+					case 0:
+						stratMsg += "La carte à deviner a la même valeur";
+						break;
+					case 1:
+						stratMsg += "La carte à deviner est plus petite";
+						break;
+				}
+				switch (this._jeu.essaisTab[i - 1][2]) {
+					case true:
+						stratMsg += " et a la même couleur";
+						break;
+					case false:
+						stratMsg += " et a une couleur différente";
+						break;
+				}
+				stratMsg += '"';
+			}
 			if (i + 1 == nb_essais) {
 				stratMsg += " et a terminé la partie.";
 			}
