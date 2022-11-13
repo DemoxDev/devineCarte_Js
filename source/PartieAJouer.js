@@ -67,6 +67,12 @@ while (retenter == true) {
 		"Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) : "
 	);
 	let nomCarte = NomCarte.getNomCarteFromString(nomSaisi);
+	while (nomCarte === null) {
+		nomSaisi = prompt(
+		"Cette carte n'existe pas. Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) : "
+		);
+		nomCarte = NomCarte.getNomCarteFromString(nomSaisi);
+	}
 	console.log("Carte choisie: " + nomCarte);
 
 	//Saisie de la couleur de la carte
@@ -75,6 +81,14 @@ while (retenter == true) {
 			'Entrez un nom de "couleur" de carte parmi : Pique, Trefle, Coeur, Carreau : '
 		)
 	);
+	while (couleurCarte === null) {
+		couleurCarte = Couleur.getCouleurCarteFromString(
+		prompt(
+			'Cette couleur n\'existe pas. Entrez un nom de "couleur" de carte parmi : Pique, Trefle, Coeur, Carreau : '
+		)
+	);
+	}
+
 	console.log("Couleur choisie: " + couleurCarte);
 
 	//Si la carte existe, on peut jouer, sinon on affiche une erreur
