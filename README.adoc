@@ -54,7 +54,7 @@ Si c'est la bonne carte alors la partie se termine (passe à l'étape suivante).
 
 class Jeu {
   avecAide : boolean
-  paquet : paquet
+  paquet : Paquet
   essaisTab : Array
   carteADeviner : Carte
   ----
@@ -65,15 +65,15 @@ class Jeu {
 class Paquet {
   nom : String
   ---
-  taille() : Int
+  taille() : int
   {static} createJeu32Cartes() : List<Carte>
   {static} createJeu52Cartes() : List<Carte>
 }
 
 class Carte {
   ---
-  compareTo(uneCarte) : Int
-  equals(uneCarte) : Boolean
+  compareTo(uneCarte : Carte) : int
+  equals(uneCarte : Carte) : boolean
 }
 
 class Couleur {
@@ -84,7 +84,7 @@ class Couleur {
 
 class NomCarte {
   name : String
-  points : Int
+  points : int
   ----
   getNomCarteFromString(unNomCarte : String) : nomCarte
 }
@@ -98,12 +98,12 @@ class Strategie {
 
 
 PartieAJouer "1" --> "1" Jeu
-Jeu"*" --> "\n  1  " Carte : "\t\t\t"
-Jeu"*" --> " 1  " Paquet : "\t\t\t\t\t\t"
-Jeu"1 jeu" <--> "  1 strategie" Strategie
-Couleur"couleur" <-- "1" Carte
-Paquet "    1    " --> "    * cartes  " Carte
-NomCarte "nomCarte" <-- "1" Carte
+Jeu"*" --> "\n  1  " Carte
+Jeu"1" --> " 1  " Paquet
+Paquet "    1    " --> "    *" Carte
+Jeu"1" <--> "  1" Strategie
+Carte"1" --> "1"Couleur
+Carte"1" --> "1"NomCarte
 hide circle
 
 @enduml
