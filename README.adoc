@@ -352,17 +352,21 @@ Cet algorithme sera représenté sous la forme d'un *diagramme d'activité* réd
 ----
 @startuml
 start
-:demander quel jeu de cartes
-demander si activation aide assistance
-intialisation du jeu;
-:demander nom de carte
-demander couleur de carte;
-if ( ?) equals (ok) then
- :action;
-else
-  : ? ;
-endif
-:autre action;
+:demander quel jeu de cartes (32/52
+demander si activation Aide assistance;
+while (Continuer partie) is (retenter)
+  :demander nom de carte
+  demander couleur de carte;
+  if(Comparaison carte) equals(Carte devinée) then
+   break;
+  else (Carte non devinée)
+  if (Aide ?) equals (avec aide) then
+   :Annonce la différence entre carte à deviner et carte proposée;
+  else (aide non activée)
+  endif;
+ endif;
+endwhile(abandonner);
+:Fin de partie;
 stop
 @enduml
 ----
@@ -377,17 +381,21 @@ Voici le code source de ce diagramme (consultable également dans le source de c
 -----
 @startuml
 start
-:demander quel jeu de cartes
-demander si activation aide assistance
-intialisatio-n du jeu;
-:demander nom de carte
-demander couleur de carte;
-if ( ?) equals (ok) then
-  :action;
-else
-  : ? ;
-endif
-:autre action;
+:demander quel jeu de cartes (32/52
+demander si activation Aide assistance;
+while (Continuer partie) is (retenter)
+  :demander nom de carte
+  demander couleur de carte;
+  if(Comparaison carte) equals(Carte devinée) then
+   break;
+  else (Carte non devinée)
+  if (Aide ?) equals (avec aide) then
+   :Annonce la différence entre carte à deviner et carte proposée;
+  else (aide non activée)
+  endif;
+ endif;
+endwhile(abandonner);
+:Fin de partie;
 stop
 @enduml
 -----
