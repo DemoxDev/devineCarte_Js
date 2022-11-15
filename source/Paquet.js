@@ -14,10 +14,6 @@ export class Paquet {
 	taille() {
 		return this._cartes.length;
 	}
-	carteAdeviner() {
-		let hasard = Math.floor(Math.random() * this.taille());
-		return this._cartes[hasard];
-	}
 
 	toString() {
 		return "Paquet de " + this.taille() + " cartes";
@@ -125,7 +121,7 @@ export class Paquet {
 		return listeCartes;
 	}
 
-	rebattement(cartes) {
+	rebattement() {
 		this.cartes.sort(() => 0.5 - Math.random());
 	}
 }
