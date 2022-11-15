@@ -47,7 +47,8 @@ export class Jeu {
 		this._paquet = paquet;
 
 		if (typeof carte === "undefined") {
-			this._carteADeviner = paquet.carteAdeviner();
+			let hasard = Math.floor(Math.random() * this._paquet.taille());
+			this._carteADeviner = this._paquet._cartes[hasard];
 		} else this._carteADeviner = carte;
 		this._avecAide = avecAide;
 		this._strategie = new Strategie(this);

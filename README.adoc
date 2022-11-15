@@ -50,33 +50,63 @@ Si c'est la bonne carte alors la partie se termine (passe à l'étape suivante).
 
 [plantuml]
 ----
+@startuml
+
 class Jeu {
   avecAide : boolean
+  paquet : Paquet
+  essaisTab : Array
+  carteADeviner : Carte
   ----
-  demarre()
-  isMatch(c : Carte) : boolean
-  statistiquesDeLaPartie() : string
+  isMatch(carteProposee : Carte) : boolean
+  strategiePartie() : string
 }
 
 class Paquet {
   nom : String
-  /cardinal : Int
   ---
-
+  taille() : int
+  {static} createJeu32Cartes() : List<Carte>
+  {static} createJeu52Cartes() : List<Carte>
 }
 
 class Carte {
-  nom
-  couleur
-  /points : Int
-  /valeur : Int
+  ---
+  compareTo(uneCarte : Carte) : int
+  equals(uneCarte : Carte) : boolean
+}
+
+class Couleur {
+  name : String
+  ---
+  getCouleurCarteFromString(unNomDeCouleur : String) : Couleur
+}
+
+class NomCarte {
+  name : String
+  points : int
+  ----
+  getNomCarteFromString(unNomCarte : String) : nomCarte
+}
+
+class PartieAJouer {
   ---
 }
 
-Jeu"*" -> "\ncarteADeviner  1  " Carte : "\t\t\t"
-Jeu"*" -> " 1  " Paquet : "\t\t\t\t\t\t"
-Paquet "    *    " --> "    * cartes  " Carte
+class Strategie {
+}
+
+
+PartieAJouer "1" --> "1" Jeu
+Jeu"*" --> "\n  1  " Carte
+Jeu"1" --> " 1  " Paquet
+Paquet "    1    " --> "    *" Carte
+Jeu"1" <--> "  1" Strategie
+Carte"1" --> "1"Couleur
+Carte"1" --> "1"NomCarte
 hide circle
+
+@enduml
 ----
 
 Cette analyse est une première ébauche, donc incomplète et à ajuster, mais suffisante pour réaliser vos premiers pas sur ce projet. Qu'est-ce qu'elle nous dit ?
@@ -352,17 +382,21 @@ Cet algorithme sera représenté sous la forme d'un *diagramme d'activité* réd
 ----
 @startuml
 start
-:demander quel jeu de cartes
-demander si activation aide assistance
-intialisation du jeu;
-:demander nom de carte
-demander couleur de carte;
-if ( ?) equals (ok) then
- :action;
-else
-  : ? ;
-endif
-:autre action;
+:demander quel jeu de cartes (32/52
+demander si activation Aide assistance;
+while (Continuer partie) is (retenter)
+  :demander nom de carte
+  demander couleur de carte;
+  if(Comparaison carte) equals(Carte devinée) then
+   break;
+  else (Carte non devinée)
+  if (Aide ?) equals (avec aide) then
+   :Annonce la différence entre carte à deviner et carte proposée;
+  else (aide non activée)
+  endif;
+ endif;
+endwhile(abandonner);
+:Fin de partie;
 stop
 @enduml
 ----
@@ -377,17 +411,21 @@ Voici le code source de ce diagramme (consultable également dans le source de c
 -----
 @startuml
 start
-:demander quel jeu de cartes
-demander si activation aide assistance
-intialisatio-n du jeu;
-:demander nom de carte
-demander couleur de carte;
-if ( ?) equals (ok) then
-  :action;
-else
-  : ? ;
-endif
-:autre action;
+:demander quel jeu de cartes (32/52
+demander si activation Aide assistance;
+while (Continuer partie) is (retenter)
+  :demander nom de carte
+  demander couleur de carte;
+  if(Comparaison carte) equals(Carte devinée) then
+   break;
+  else (Carte non devinée)
+  if (Aide ?) equals (avec aide) then
+   :Annonce la différence entre carte à deviner et carte proposée;
+  else (aide non activée)
+  endif;
+ endif;
+endwhile(abandonner);
+:Fin de partie;
 stop
 @enduml
 -----

@@ -47,8 +47,4 @@ export class Carte {
 		return this.nomCarte + " de " + this.couleur;
 	};
 }
-/*
-	Carte.prototype.toString = () => {
-		return this.nomCarte + " de " + this.couleur;
-	};
-}*/
+
