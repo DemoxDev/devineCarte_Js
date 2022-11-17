@@ -55,7 +55,7 @@ Si c'est la bonne carte alors la partie se termine (passe à l'étape suivante).
 class Jeu {
   avecAide : boolean
   paquet : Paquet
-  essaisTab : Array
+  essaisTab : Matrix
   carteADeviner : Carte
   ----
   isMatch(carteProposee : Carte) : boolean
@@ -66,6 +66,7 @@ class Paquet {
   nom : String
   ---
   taille() : int
+  rebattement: List<Carte>
   {static} createJeu32Cartes() : List<Carte>
   {static} createJeu52Cartes() : List<Carte>
 }
@@ -86,7 +87,7 @@ class NomCarte {
   name : String
   points : int
   ----
-  getNomCarteFromString(unNomCarte : String) : nomCarte
+  getNomCarteFromString(unNomCarte : String) : NomCarte
 }
 
 class PartieAJouer {
@@ -94,16 +95,17 @@ class PartieAJouer {
 }
 
 class Strategie {
+ ----
+toString(): String
 }
 
 
 PartieAJouer "1" --> "1" Jeu
-Jeu"*" --> "\n  1  " Carte
-Jeu"1" --> " 1  " Paquet
-Paquet "    1    " --> "    *" Carte
-Jeu"1" <--> "  1" Strategie
-Carte"1" --> "1"Couleur
-Carte"1" --> "1"NomCarte
+Jeu"1  " --> "1" Paquet
+Jeu"1" -- "\t\t1" Strategie
+Paquet "1" --> "*" Carte
+Carte "*" --> "1"Couleur
+Carte "*" --> "1"NomCarte
 hide circle
 
 @enduml
