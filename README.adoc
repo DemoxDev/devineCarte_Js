@@ -437,9 +437,14 @@ stop
 
 Vous les trouverez dans la définition de la classe `PartieAJouer`
 
+=== TODOs effectués
+Permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie et présenter à la fin la carte à deviner
+
+
 === Représentation algorithme de la fonction nouvelle version
 
 Représenter, sous la forme d'un diagramme d'activité rédigé en `plantuml`, la nouvelle version de l'algorithme .
+(Effectué, le bon diagramme est désormais présent sur la documentation.)
 
 '''
 
@@ -461,6 +466,11 @@ et *plusieurs* méthodes de test dans
 
 `test\PaquetTest.mjs`
 ====
+
+=== Méthodes créés
+Paquet.js : createJeu32Cartes, createJeu52Cartes, rebattement
+
+PaquetTest.mjs : Tests unitaires pour vérifier la taille d'un paquet de cartes, le contenu d'un paquet de cartes, si les cartes sont bien rebattues.
 
 '''
 
@@ -488,6 +498,9 @@ des informations utiles sur ces notions.
 L'analyse de la stratégie du joueur, qui se déclenche au moment où le joueur termine sa partie, devra s'appuyer, *entre autres*, sur les paramètres de la partie, à savoir le *nombre de cartes* et si l'*aide à la décision a été activée ou non* pour la partie en question.
 
 Le résultat de l'analyse de la stratégie du joueur peut être représentée sous la forme d'un texte (une chaine de caractères) ou d'un type énuméré, ou les deux... C'est à vous de décider.
+
+=== Méthodes créés
+Strategie.js (nouvelle classe créé) : toString() (affiche dans la console si le joueur a utilisé de l'aide, les indices qu'il a reçu, si la carte que le joueur a deviné est plus grande, plus petite ou a une couleur différente que la carte à deviner, le nombre d'essais et à la fin, si le joueur à terminé la partie). Donc Challenge 4 accompli.
 
 == Livraison
 
