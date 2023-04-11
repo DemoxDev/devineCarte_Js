@@ -3,9 +3,8 @@ import { NomCarte } from "./NomCarte.js";
 import { Couleur } from "./Couleur.js";
 import { Jeu } from "./Jeu.js";
 import { Paquet } from "./Paquet.js";
-import promptSync from "prompt-sync";
 
-const prompt = promptSync();
+const prompt = window.prompt();
 // Choix de quel jeu de carte (32 ou 52)
 var nb_cartes = Number(
 	prompt("Saisissez le nombre de cartes pour le jeu (32/52): ")

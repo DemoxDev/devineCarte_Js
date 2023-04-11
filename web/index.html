@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Devine la carte !</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Devine la carte !</h1>
+    <div id="game"></div>
+    <script src="app.js" type="module"></script>
+<div id="game-container">
+    <label for="card-number">Nombre de cartes :</label>
+        <select id="card-number">
+            <option value="32">32</option>
+            <option value="52">52</option>
+        </select>
+        <br /><br />
+        <label for="help">Aide :</label>
+        <select id="help">
+            <option value="yes">Oui</option>
+            <option value="no">Non</option>
+        </select>
+        <br /><br />
+        <button id="start-game">Commencer</button>
+    <form id="game-form">
+        <br /><br />
+        <div id="form-elements" style="display:none;">
+            <label for="nomCarte">Nom de la carte:</label>
+            <input type="text" id="nomCarte" name="nomCarte">
+            <label for="couleurCarte">Couleur de la carte:</label>
+            <input type="text" id="couleurCarte" name="couleurCarte">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
