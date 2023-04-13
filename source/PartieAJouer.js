@@ -4,15 +4,15 @@ import { Couleur } from "./Couleur.js";
 import { Jeu } from "./Jeu.js";
 import { Paquet } from "./Paquet.js";
 
-const prompt = window.prompt();
+
 // Choix de quel jeu de carte (32 ou 52)
 var nb_cartes = Number(
-	prompt("Saisissez le nombre de cartes pour le jeu (32/52): ")
+	window.prompt("Saisissez le nombre de cartes pour le jeu (32/52): ")
 );
 while (nb_cartes !== 32 && nb_cartes !== 52) {
 	console.log("Choix invalide !");
 	nb_cartes = Number(
-		prompt("Saisissez le nombre de cartes pour le jeu (32/52): ")
+		window.prompt("Saisissez le nombre de cartes pour le jeu (32/52): ")
 	);
 }
 if (nb_cartes == 32) {
@@ -28,7 +28,7 @@ let aide = "";
 // Donner au joueur le choix de reçevoir de l'aide à chaque essai
 while (aide !== true && aide !== false) {
 	//Tant que aide n'est pas de type booléen
-	aide = prompt(
+	aide = window.prompt(
 		"Voulez vous reçevoir des indices lors de votre partie ? (Oui/Non): "
 	);
 	if (aide.toLowerCase() == "oui") {
@@ -57,12 +57,12 @@ while (retenter == true) {
 	jeu.essaisTab[0][0]++;
 	console.log("Essai n°" + jeu.essaisTab[0][0]);
 	//Saisie du nom de la carte
-	let nomSaisi = prompt(
+	let nomSaisi = window.prompt(
 		"Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) : "
 	);
 	let nomCarte = NomCarte.getNomCarteFromString(nomSaisi);
 	while (nomCarte === null) {
-		nomSaisi = prompt(
+		nomSaisi = window.prompt(
 		"Cette carte n'existe pas. Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) : "
 		);
 		nomCarte = NomCarte.getNomCarteFromString(nomSaisi);
@@ -71,13 +71,13 @@ while (retenter == true) {
 
 	//Saisie de la couleur de la carte
 	let couleurCarte = Couleur.getCouleurCarteFromString(
-		prompt(
+		window.prompt(
 			'Entrez un nom de "couleur" de carte parmi : Pique, Trefle, Coeur, Carreau : '
 		)
 	);
 	while (couleurCarte === null) {
 		couleurCarte = Couleur.getCouleurCarteFromString(
-		prompt(
+		window.prompt(
 			'Cette couleur n\'existe pas. Entrez un nom de "couleur" de carte parmi : Pique, Trefle, Coeur, Carreau : '
 		)
 	);
@@ -148,7 +148,7 @@ while (retenter == true) {
 	}
 	while (retenter !== true && retenter !== false) {
 		//Tant que retenter n'est pas de type booléen
-		retenter = prompt("Voulez vous retenter votre chance ? (Oui/Non): ");
+		retenter = window.prompt("Voulez vous retenter votre chance ? (Oui/Non): ");
 		if (retenter.toLowerCase() == "oui") {
 			retenter = true;
 		} else if (retenter.toLowerCase() == "non") {
